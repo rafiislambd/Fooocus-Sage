@@ -3,43 +3,43 @@
 # Set this variable to true to install to the temporary folder, or to false to have the installation in permanent storage.
 install_in_temp_dir=true
 
-if [ ! -d "Fooocus" ]
+if [ ! -d "UxFooocus" ]
 then
-  git clone https://github.com/lllyasviel/Fooocus.git
+  git clone https://github.com/rafiislambd/UxFooocus.git
 fi
-cd Fooocus
+cd UxFooocus
 git pull
 if [ "$install_in_temp_dir" = true ]
 then
-  echo "Installation folder: /tmp/fooocus"
-  if [ ! -L ~/.conda/envs/fooocus ]
+  echo "Installation folder: /tmp/UxFooocus"
+  if [ ! -L ~/.conda/envs/UxFooocus ]
   then
-    echo "removing ~/.conda/envs/fooocus"
-    rm -rf ~/.conda/envs/fooocus
-    rmdir ~/.conda/envs/fooocus
-    ln -s /tmp/fooocus ~/.conda/envs/
+    echo "removing ~/.conda/envs/UxFooocus"
+    rm -rf ~/.conda/envs/UxFooocus
+    rmdir ~/.conda/envs/UxFooocus
+    ln -s /tmp/UxFooocus ~/.conda/envs/
   fi
 else
-  echo "Installation folder: ~/.conda/envs/fooocus"
-  if [ -L ~/.conda/envs/fooocus ]
+  echo "Installation folder: ~/.conda/envs/UxFooocus"
+  if [ -L ~/.conda/envs/UxFooocus ]
   then
-    rm ~/.conda/envs/fooocus
+    rm ~/.conda/envs/UxFooocus
   fi
 fi
 eval "$(conda shell.bash hook)"
-if [ ! -d ~/.conda/envs/fooocus ]
+if [ ! -d ~/.conda/envs/UxFooocus ]
 then 
-    echo ".conda/envs/fooocus is not a directory or does not exist"
+    echo ".conda/envs/UxFooocus is not a directory or does not exist"
 fi
-if [ "$install_in_temp_dir" = true ] && [ ! -d /tmp/fooocus ] || [ "$install_in_temp_dir" = false ] && [ ! -d ~/.conda/envs/fooocus ]
+if [ "$install_in_temp_dir" = true ] && [ ! -d /tmp/UxFooocus ] || [ "$install_in_temp_dir" = false ] && [ ! -d ~/.conda/envs/UxFooocus ]
 then
     echo "Installing"
-    if [ "$install_in_temp_dir" = true ] && [ ! -d /tmp/fooocus ]
+    if [ "$install_in_temp_dir" = true ] && [ ! -d /tmp/UxFooocus ]
     then
-        mkdir /tmp/fooocus
+        mkdir /tmp/UxFooocus
     fi
     conda env create -f environment.yaml
-    conda activate fooocus
+    conda activate UxFooocus
     pwd
     ls
     pip install -r requirements_versions.txt
@@ -70,7 +70,7 @@ then
     ln -s models/checkpoints-real-folder models/checkpoints
 fi
 
-conda activate fooocus
+conda activate UxFooocus
 cd ..
 if [ $# -eq 0 ]
 then
